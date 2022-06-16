@@ -10,9 +10,10 @@ Welcome to NCTracer Demo's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-intro
-demo
-examples
+   intro
+   demo
+   examples
+
 
 
 Indices and tables
