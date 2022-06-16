@@ -1,5 +1,5 @@
-Header 1
-========
+Typography Demo
+===============
 --------
 Subtitle
 --------

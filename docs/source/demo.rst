@@ -1,9 +1,13 @@
 .. This is a comment. Note how any initial comments are moved by
    transforms to after the document title, subtitle, and docinfo.
+   
+   
+MultiMedia Demo
+===============   
 
-================================
- reStructuredText Demonstration
-================================
+==============================
+reStructuredText Demonstration
+==============================
 
 .. Above is the document title, and below is the subtitle.
    They are transformed from section titles after parsing.
