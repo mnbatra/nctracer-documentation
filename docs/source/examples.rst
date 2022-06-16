@@ -43,10 +43,6 @@ The UTF-8 quote character in this table used to cause python to go boom. Now doc
 
 	export function ƒ(ɑ, β) {}
 
-.. doctest:: ignored
-
-	>>> some_function()
-	'result'
 
 >>> some_function()
 'result'
