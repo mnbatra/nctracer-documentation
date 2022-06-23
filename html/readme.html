@@ -1,249 +1,299 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; NCTracer Demo 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Typography Demo" href="examples.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="contents.html" class="icon icon-home"> NCTracer Demo
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">IndexPage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demo.html"><span class="sectnum">1</span> reStructuredText Demonstration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Typography Demo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#example-codes">Example Codes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation-usage">Installation/Usage:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#search-for-device-connect-and-read-characteristic">Search for device, connect and read characteristic</a></li>
-</ul>
-</li>
-</ul>
-
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="contents.html">NCTracer Demo</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Introduction</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/readme.md.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">simpleble</span></code> is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the <code class="docutils literal notranslate"><span class="pre">bluepy</span></code> package created by Ian Harvey (see <a class="reference external" href="https://github.com/IanHarvey/bluepy">here</a>)</p>
-<p>The aim here was to define a single object which would allow users to perform the various operations performed by the <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Scanner</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Characteristic</span></code> classes of <code class="docutils literal notranslate"><span class="pre">bluepy</span></code>, from one central place. This functionality is facilitated by the <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> and <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleDevice</span></code> classes, where the latter is an extention/subclass of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, combined with properties of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.ScanEntry</span></code>.</p>
-<p>The current implementation has been developed in Python 3 and tested on a Raspberry Pi Zero W, running Raspbian 9 (stretch), but should work with Python 2.7+ (maybe with minor modifications in terms of printing and error handling) and most Debian based OSs.</p>
-<section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
-<p>As a newbie experimenter/hobbyist in the field of IoT using BLE communications, I found it pretty hard to identify a Python package which would enable one to use a Raspberry Pi (Zero W inthis case) to swiftly scan, connect to and read/write from/to a nearby BLE device (GATT server).</p>
-<p>This package is intended to provide a quick, as well as (hopefully) easy to undestand, way of getting a simple BLE GATT client up and running, for all those out there, who, like myself, are hands-on learners and are eager to get their hands dirty from early on.</p>
-</section>
-<section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>As my main use-case scenario was to simply connect two devices, the current version of <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> has been designed and implemented with this use-case in mind. As such, if you are looking for a package to allow you to connect to multiple devices, then know that off-the-self this package DOES NOT allow you to do so. However, implementing such a feature is an easily achievable task, which has been planned for sometime in the near future and if there proves to be interest on the project, I would be happy to speed up the process.</p></li>
-<li><p>Only Read and Write operations are currently supported, but I am planning on adding Notifications soon.</p></li>
-<li><p>Although the interfacing operations of the <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code> classes have been brought forward to the <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> class, the same has not been done for the <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Descriptor</span></code>, meaning that the <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> cannot be used to directly access the Descriptors. This can however be done easily by obtaining a handle of a <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleDevice</span></code> object and calling the superclass <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral.getDescriptors</span></code> method.</p></li>
-</ul>
-</section>
-</section>
-<section id="example-codes">
-<h1>Example Codes<a class="headerlink" href="#example-codes" title="Permalink to this heading"></a></h1>
-<section id="installation-usage">
-<h2>Installation/Usage:<a class="headerlink" href="#installation-usage" title="Permalink to this heading"></a></h2>
-<p>As the package has not been published on PyPi yet, it CANNOT be install using pip.</p>
-<p>For now, the suggested method is to put the file <code class="docutils literal notranslate"><span class="pre">simpleble.py</span></code> in the same directory as your source files and call <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">simpleble</span> <span class="pre">import</span> <span class="pre">SimpleBleClient,</span> <span class="pre">SimpleBleDevice</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">bluepy</span></code> must also be installed and imported as shown in the example below.
-For instructions about how to install, as well as the full documentation of, <code class="docutils literal notranslate"><span class="pre">bluepy</span></code> please refer <a class="reference external" href="https://github.com/IanHarvey/bluepy">here</a></p>
-</section>
-<section id="search-for-device-connect-and-read-characteristic">
-<h2>Search for device, connect and read characteristic<a class="headerlink" href="#search-for-device-connect-and-read-characteristic" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-    <span class="sd">&quot;&quot;&quot;This example demonstrates a simple BLE client that scans for devices, </span>
-<span class="sd">    connects to a device (GATT server) of choice and continuously reads a characteristic on that device.</span>
-
-<span class="sd">    The GATT Server in this example runs on an ESP32 with Arduino. For the    </span>
-<span class="sd">    exact script used for this example see https://github.com/nkolban/ESP32_BLE_Arduino/blob/6bad7b42a96f0aa493323ef4821a8efb0e8815f2/examples/BLE_notify/BLE_notify.ino </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="kn">from</span> <span class="nn">bluepy.btle</span> <span class="kn">import</span> <span class="o">*</span>
-    <span class="kn">from</span> <span class="nn">simpleble</span> <span class="kn">import</span> <span class="n">SimpleBleClient</span><span class="p">,</span> <span class="n">SimpleBleDevice</span>
-
-    <span class="c1"># The UUID of the characteristic we want to read and the name of the device # we want to read it from</span>
-    <span class="n">Characteristic_UUID</span> <span class="o">=</span> <span class="s2">&quot;beb5483e-36e1-4688-b7f5-ea07361b26a8&quot;</span>
-    <span class="n">Device_Name</span> <span class="o">=</span> <span class="s2">&quot;MyESP32&quot;</span>
-
-    <span class="c1"># Define our scan and notification callback methods</span>
-    <span class="k">def</span> <span class="nf">myScanCallback</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">isNewDevice</span><span class="p">,</span> <span class="n">isNewData</span><span class="p">):</span>
-        <span class="n">client</span><span class="o">.</span><span class="n">_yes</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#MAC: &quot;</span> <span class="o">+</span> <span class="n">device</span><span class="o">.</span><span class="n">addr</span> <span class="o">+</span> <span class="s2">&quot; #isNewDevice: &quot;</span> <span class="o">+</span>
-              <span class="nb">str</span><span class="p">(</span><span class="n">isNewDevice</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; #isNewData: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">isNewData</span><span class="p">))</span>
-    <span class="c1"># TODO: NOTIFICATIONS ARE NOT SUPPORTED YET</span>
-    <span class="c1"># def myNotificationCallback(client, characteristic, data):</span>
-    <span class="c1">#     print(&quot;Notification received!&quot;)</span>
-    <span class="c1">#     print(&quot;  Characteristic UUID: &quot; + characteristic.uuid)</span>
-    <span class="c1">#     print(&quot;  Data: &quot; + str(data))</span>
-
-    <span class="c1"># Instantiate a SimpleBleClient and set it&#39;s scan callback</span>
-    <span class="n">bleClient</span> <span class="o">=</span> <span class="n">SimpleBleClient</span><span class="p">()</span>
-    <span class="n">bleClient</span><span class="o">.</span><span class="n">setScanCallback</span><span class="p">(</span><span class="n">myScanCallback</span><span class="p">)</span>
-    <span class="c1"># TODO: NOTIFICATIONS ARE NOT SUPPORTED YET</span>
-    <span class="c1"># bleClient.setNotificationCallback(myNotificationCollback)</span>
-
-    <span class="c1"># Error handling to detect Keyboard interrupt (Ctrl+C)</span>
-    <span class="c1"># Loop to ensure we can survive connection drops</span>
-    <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">bleClient</span><span class="o">.</span><span class="n">isConnected</span><span class="p">()):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># Search for 2 seconds and return a device of interest if found.</span>
-            <span class="c1"># Internally this makes a call to bleClient.scan(timeout), thus</span>
-            <span class="c1"># triggering the scan callback method when nearby devices are detected</span>
-            <span class="n">device</span> <span class="o">=</span> <span class="n">bleClient</span><span class="o">.</span><span class="n">searchDevice</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyESP32&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-                <span class="c1"># If the device was found print out it&#39;s info</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found device!!&quot;</span><span class="p">)</span>
-                <span class="n">device</span><span class="o">.</span><span class="n">printInfo</span><span class="p">()</span>
-
-                <span class="c1"># Proceed to connect to the device</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Proceeding to connect....&quot;</span><span class="p">)</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">bleClient</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">device</span><span class="p">)):</span>
-
-                    <span class="c1"># Have a peek at the services provided by the device</span>
-                    <span class="n">services</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">getServices</span><span class="p">()</span>
-                    <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service [&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">uuid</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;]&quot;</span><span class="p">)</span>
-
-                    <span class="c1"># Check to see if the device provides a characteristic with the</span>
-                    <span class="c1"># desired UUID</span>
-                    <span class="n">counter</span> <span class="o">=</span> <span class="n">bleClient</span><span class="o">.</span><span class="n">getCharacteristics</span><span class="p">(</span>
-                        <span class="n">uuids</span><span class="o">=</span><span class="p">[</span><span class="n">Characteristic_UUID</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="k">if</span><span class="p">(</span><span class="n">counter</span><span class="p">):</span>
-                        <span class="c1"># If it does, then we proceed to read its value every second</span>
-                        <span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-                            <span class="c1"># Error handling ensures that we can survive from</span>
-                            <span class="c1"># potential connection drops</span>
-                            <span class="k">try</span><span class="p">:</span>
-                                <span class="c1"># Read the data as bytes and convert to string</span>
-                                <span class="n">data_bytes</span> <span class="o">=</span> <span class="n">bleClient</span><span class="o">.</span><span class="n">readCharacteristic</span><span class="p">(</span>
-                                    <span class="n">counter</span><span class="p">)</span>
-                                <span class="n">data_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">chr</span><span class="p">,</span> <span class="n">data_bytes</span><span class="p">))</span>
-
-                                <span class="c1"># Now print the data and wait for a second</span>
-                                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data: &quot;</span> <span class="o">+</span> <span class="n">data_str</span><span class="p">)</span>
-                                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-                            <span class="k">except</span> <span class="n">BTLEException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                                <span class="c1"># If we get disconnected from the device, keep</span>
-                                <span class="c1"># looping until we have reconnected</span>
-                                <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">BTLEException</span><span class="o">.</span><span class="n">DISCONNECTED</span><span class="p">):</span>
-                                    <span class="n">bleClient</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
-                                    <span class="nb">print</span><span class="p">(</span>
-                                        <span class="s2">&quot;Connection to BLE device has been lost!&quot;</span><span class="p">)</span>
-                                    <span class="k">break</span>
-                                    <span class="c1"># while(not bleClient.isConnected()):</span>
-                                    <span class="c1">#     bleClient.connect(device)</span>
-
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Could not connect to device! Retrying in 3 sec...&quot;</span><span class="p">)</span>
-                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device not found! Retrying in 3 sec...&quot;</span><span class="p">)</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-        <span class="k">except</span> <span class="n">BTLEException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="c1"># If we get disconnected from the device, keep</span>
-            <span class="c1"># looping until we have reconnected</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">BTLEException</span><span class="o">.</span><span class="n">DISCONNECTED</span><span class="p">):</span>
-                <span class="n">bleClient</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
-                <span class="nb">print</span><span class="p">(</span>
-                    <span class="s2">&quot;Connection to BLE device has been lost!&quot;</span><span class="p">)</span>
-                <span class="k">break</span>
-        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="c1"># Detect keyboard interrupt and close down</span>
-            <span class="c1"># bleClient gracefully</span>
-            <span class="n">bleClient</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span>
-</pre></div>
-</div>
-</section>
-</section>
-
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="examples.html" class="btn btn-neutral float-left" title="Typography Demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
+    <div id="attribution">
+        Protected by <a href="https://www.maxlaumeister.com/pagecrypt/">PageCrypt</a>
+    </div>
+    <script>
+    (function() {
 
-  <hr/>
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Aman.</p>
-  </div>
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
 
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
 
-</body>
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
+
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
+
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
+
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
+
+                let decrypted = new TextDecoder().decode(decryptedArray);
+
+                if (decrypted === "") throw "No data returned";
+
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
+
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
