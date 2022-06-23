@@ -11,7 +11,7 @@ Welcome to NCTracer Demo's documentation!
    :caption: Contents:
 
    intro
-   contents
+   index
    demo
    examples
    readme
