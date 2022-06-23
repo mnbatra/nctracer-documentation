@@ -31,8 +31,9 @@ master_doc = 'index'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinxcontrib.youtube"
-]
+    "sphinxcontrib.youtube",
+    "myst_parser"
+    ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,6 +56,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+source_suffix = ['.rst', '.md']
 
 man_pages = [
     (master_doc, 'Demo', 'Examples',

@@ -1,10 +1,3 @@
-.. This is a comment. Note how any initial comments are moved by
-   transforms to after the document title, subtitle, and docinfo.
-   
-   
-MultiMedia Demo
-===============   
-
 ==============================
 reStructuredText Demonstration
 ==============================
@@ -354,30 +347,19 @@ Citations
 .. [CIT2002] Citations are text-labeled footnotes. They may be
    rendered separately and differently from footnotes.
 
-Here's a reference to the above, [CIT2002]_, and a [nonexistent]_
-citation.
+Here's a reference to the above, [CIT2002]_.
 
 Targets
 -------
 
 .. _example:
 
-This paragraph is pointed to by the explicit "example" target. A
-reference can be found under `Inline Markup`_, above. `Inline
-hyperlink targets`_ are also possible.
-
-Section headers are implicit targets, referred to by name. See
-Targets_, which is a subsection of `Body Elements`_.
+This paragraph is pointed to by the explicit "example" target.
 
 Explicit external targets are interpolated into references such as
 "Python_".
 
 .. _Python: http://www.python.org/
-
-Targets may be indirect and anonymous.  Thus `this phrase`__ may also
-refer to the Targets_ section.
-
-
 
 Directives
 ----------
