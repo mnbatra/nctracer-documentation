@@ -24,7 +24,7 @@ author = 'Aman'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
-master_doc = 'index'
+master_doc = 'contents'
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -59,6 +59,6 @@ html_static_path = ['_static']
 source_suffix = ['.rst', '.md']
 
 man_pages = [
-    (master_doc, 'Demo', 'Examples',
+    (master_doc,'index','demo','examples','contents',
      [author], 1)
 ]
