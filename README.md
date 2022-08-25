@@ -146,3 +146,36 @@ Finally, we'll check the `sphinx.ext.intersphinx` extension. Adding this to our 
 - [Matplotlib Sphinx tutorial](https://matplotlib.org/sampledoc/)
 - [Sphinx tutorial](https://sphinx-tutorial.readthedocs.io/) by Eric Holscher
 - [A beginner's guide to writing documentation](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/), also by Eric Holscher
+
+
+
+# PageCrypt Documentation
+
+## PageCrypt has a very simple Command Line Interface with Python ##
+This tool securely password-protects HTML files from the command line using just Python3.
+
+### Usage ###
+Just Install Python3 and Clone PageCrypt repository from here https://github.com/MaxLaumeister/PageCrypt 
+Now Change current directory to PageCrypt/Python/
+Run: `pip3 install -r requirements.txt` 
+Run: `python3 encrypt.py filename [passphrase]`  
+
+**Note:** filename is the entire filepath in case the html file is not in the /Python/ directory.
+
+The first, mandatory parameter is the name of the file you want to encrypt.
+It is also possible to give the passphrase as the second parameter. If there is
+no passphrase provided at start, the script will ask for it while running.
+
+### Dependencies ###
+1) Python3 and Pip3
+2) [pycryptodome](https://pypi.org/project/pycryptodome/) for AES. (pycrypto is [deprecated](https://github.com/pycrypto/pycrypto/issues/275))
+3) Python version of [pbkdf2](https://pypi.org/project/pbkdf2/): `pip3 install pbkdf2`
+
+
+### Demo 
+
+Goto: https://mnbatra.github.io/nctracer-documentation/html/
+Click on: “Introduction” section in the left sidebar.
+The page is encrypted and paraphrase is “aman” 
+If you refresh the page it will be locked again.
+
